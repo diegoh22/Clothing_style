@@ -59,6 +59,14 @@ def update_sale_worksheet(data):
     print("sales updated Successfully.\n")
 
 
+def update_surplus_worksheet(data):
+
+    print("Updating sales woksheet...\n")
+    surplus_woksheet = SHEET.worksheet("surplus")
+    surplus_woksheet.append_row(data)
+    print("sales updated Successfully.\n")
+
+
 def calculate_surplus_numbers(sales_row):
     print("calculation Surplus data...\n")
     stock = SHEET.worksheet("stock").get_all_values()
@@ -79,8 +87,7 @@ def main():
     sales_numbers = [int(num) for num in data]
     update_sale_worksheet(sales_numbers)
     new_surplus_data = calculate_surplus_numbers(sales_numbers)
-
-    print(new_surplus_data)
+    update_surplus_worksheet(new_surplus_data)
 
 
 print("Welcome to Clothing and Style Weekly numbers Automation")
