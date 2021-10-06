@@ -42,8 +42,7 @@ def validate_data(values):
         [int(value) for value in values]
         if len(values) != 6:
             raise ValueError(
-                f"Enter six numbers, you enter:\n {len(values)}"
-            )
+                f"Enter six numbers, you enter:\n {len(values)}")
     except ValueError as e:
         print(f"invalid date: {e}, please try again.\n")
         return False
@@ -80,18 +79,6 @@ def calculate_surplus_numbers(sales_row):
     return surplus_data
 
 
-def month_entry_sale():
-
-    sales = SHEET.worksheet("sale")
-
-    columns = []
-    for ind in range(1, 7):
-        column = sales.col_values(ind)
-        columns.append(column)
-
-    return columns
-
-
 def main():
     data = get_sales_numbers()
     sales_numbers = [int(num) for num in data]
@@ -102,5 +89,3 @@ def main():
 
 print("Welcome to Clothing and Style Weekly numbers Automation")
 main()
-
-sales_columns = month_entry_sale()
