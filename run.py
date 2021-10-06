@@ -24,7 +24,7 @@ def get_sales_numbers():
     while True:
         print('Please enter de sales numbers of the day')
         print('Enter the numbers separate by a commas')
-        print(' six numbers, Explate 10,50,100,65,48,98,\n')
+        print('six numbers, Explate 10,50,100,65,48,98,\n')
 
         numbers_str = input("Enter the numbers here: ")
 
@@ -61,18 +61,16 @@ def update_sale_worksheet(data):
 
 def update_surplus_worksheet(data):
 
-    print("Updating sales woksheet...\n")
+    print("Updating surplus woksheet...\n")
     surplus_woksheet = SHEET.worksheet("surplus")
     surplus_woksheet.append_row(data)
-    print("sales updated Successfully.\n")
+    print("surplus updated Successfully.\n")
 
 
 def calculate_surplus_numbers(sales_row):
     print("calculation Surplus data...\n")
     stock = SHEET.worksheet("stock").get_all_values()
     stock_row = stock[-1]
-    print(f"stock_row: {stock_row}")
-    print(f"sales_row: {sales_row}")
 
     surplus_data = []
     for stock, sales in zip(stock_row, sales_row):
