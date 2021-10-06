@@ -49,4 +49,15 @@ def validate_data(values):
     return True
 
 
+def update_sale_worksheet(data):
+
+    print("Updating sales woksheet...\n")
+    sales_woksheet = SHEET.worksheet("sales")
+    sales_woksheet.append_row(data)
+    print("sales updated Successfully.\n")
+
+
 data = get_sales_numbers()
+
+sales_numbers = [int(num) for num in data]
+update_sale_worksheet(sales_numbers)
